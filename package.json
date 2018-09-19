@@ -1,0 +1,32 @@
+{
+  "name": "ewf-tutorial-secretstore-privatetx",
+  "version": "0.0.1",
+  "description": "EWF's tutorial of using the secret store and private transactions",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "bluebird": "^3.5.2",
+    "crypto-js": "^3.1.9-1",
+    "ethereumjs-tx": "^1.3.7",
+    "web3": "^1.0.0-beta.32",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngyam/tutorial-private-tx.git"
+  },
+  "author": "Adam Nagy (adam.nagy@energyweb.org)",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/ngyam/tutorial-private-tx/issues"
+  },
+  "homepage": "https://github.com/ngyam/tutorial-private-tx#readme"
+}

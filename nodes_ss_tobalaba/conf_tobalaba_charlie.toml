@@ -1,0 +1,69 @@
+[parity]
+base_path = "db.tobalaba_ss_charlie"
+# chain = "tobalaba"
+chain = "../chainspec/tobalaba.json"
+
+[ui]
+disable = false
+
+[rpc]
+disable = false
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts", "private", "secretstore"]
+port = 8549
+cors = ["*"]
+
+[ipc]
+disable = true
+
+[websockets]
+disable = true
+
+[dapps]
+disable = false
+
+[ipfs]
+enable = false
+
+[network]
+port = 30305
+node_key = "7218a36efed0ab14a6295bb1c322ba1abbc4decf"
+reserved_peers = "./reserved_peers_charlie.txt"
+
+[snapshots]
+disable_periodic = true
+
+[secretstore]
+disable = false
+disable_http = false
+#acl_contract = "none"
+acl_contract = "E039D0ED2Ff107465176bBbe173356F1505aB475"
+server_set_contract = "none"
+#disable_acl_check = true
+self_secret = "7218a36efed0ab14a6295bb1c322ba1abbc4decf"
+interface = "all"
+port = 8087
+http_interface = "all"
+http_port = 8092    
+path = "db.tobalaba_ss_charlie/secretstore"
+nodes = [
+    "df73521d73ba2014bfb1a40c7a582365da53ac093a82a72d7b9e26cdc5a339ef34137087030fd5dfab38d5e9515964def893548e8209f7861a6ff4f76f0e66f7@127.0.0.1:8083",
+    "5ae2252871be8fb040c47308b895c68279ffe498b93dd601e6f7f1b4333f8218b60a600d25fe953b95c6962e71c3174d2c92d2774e4fcacc7d86739780280ebd@127.0.0.1:8085",
+    "634c23892a957ef02a1952a65f2f1c89f5fffa28592068f4f31ec276981477ec86841d16a7fdf0c0836cf98ff24a1ba8dc546c95aeddde920a73f29cf2535d92@127.0.0.1:8087"
+]
+
+[misc]
+logging = "transaction_pool=trace,txqueue=trace,ethcore_private_tx=trace,own_tx=trace"
+log_file = "./db.tobalaba_ss_charlie/parity.log"
+color = true
+
+[account] # unlock Charlie's account to deploy the contract
+#unlock = ["0x7218a36efed0ab14a6295bb1c322ba1abbc4decf"]
+password = ["charlie.pwd"]
+
+[private_tx]
+sstore_url = "http://127.0.0.1:8092"
+enabled = true
+account = "0x7218a36efed0ab14a6295bb1c322ba1abbc4decf"
+signer = "0x7218a36efed0ab14a6295bb1c322ba1abbc4decf"
+validators= ["0x7218a36efed0ab14a6295bb1c322ba1abbc4decf"]
+passwords = "charlie.pwd"
