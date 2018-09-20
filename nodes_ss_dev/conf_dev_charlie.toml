@@ -58,15 +58,12 @@ logging = "transaction_pool=trace,txqueue=trace,ethcore_private_tx=trace,own_tx=
 log_file = "./db.dev_ss_charlie/parity.log"
 color = true
 
-#[mining]
-#gas_floor_target = "8000000"
-
 [account] # unlock Charlie's account to deploy the contract
 #unlock = ["0x8b2c16e09bfb011c5e4883cedb105124ccf01af7"]
 password = ["charlie.pwd"]
 
 [private_tx]
-sstore_url = "http://127.0.0.1:8090"
+sstore_url = "http://127.0.0.1:8092"
 enabled = true
 account = "0x8b2c16e09bfb011c5e4883cedb105124ccf01af7"
 signer = "0x8b2c16e09bfb011c5e4883cedb105124ccf01af7"

@@ -101,8 +101,14 @@ async function passwords(web3) {
     });
 }
 
-function composeTx(web3, gas, gasprice, from, to, data) {
+function composeTx(web3, gas, gasprice, from, to, data, nonce=null) {
     return new Promise((resolve, reject) => {
+        let nc;
+        if (nonce !== undefined && nonce !== null) {
+            nc = web3.utils.toHex(nonce);
+        } else {
+            nc = null;
+        }
         web3.currentProvider.send({
             jsonrpc: '2.0',
             method: 'parity_composeTransaction',
@@ -112,6 +118,7 @@ function composeTx(web3, gas, gasprice, from, to, data) {
                 "gasPrice": web3.utils.toHex(gasprice),
                 "from": from,
                 "data": data,
+                "nonce": nc,
             }],
             id: 1
         }, (e, r) => {
@@ -126,7 +133,7 @@ function composeTx(web3, gas, gasprice, from, to, data) {
                 reject(r.error)
             }
             else {
-                console.log(r);
+                //console.log(r);
                 resolve(r.result);
             }
         });
@@ -152,7 +159,7 @@ function sendRawTx(web3, raw) {
                 reject(r.error)
             }
             else {
-                console.log(r);
+                //console.log(r);
                 resolve(r.result);
             }
         });
@@ -204,7 +211,7 @@ function privateCall(web3, tx) {
                 reject(r.error)
             }
             else {
-                console.log(r);
+                //console.log(r);
                 resolve(r.result);
             }
         });
@@ -230,7 +237,7 @@ function privateSend(web3, tx) {
                 reject(r.error)
             }
             else {
-                console.log(r);
+                //console.log(r);
                 resolve(r.result);
             }
         });
@@ -240,13 +247,13 @@ function privateSend(web3, tx) {
 function getJSONInterface(web3, abi, type, name) {
     return new Promise((resolve, reject) => {
         let res = abi.find((x) => {
-            return (x.type === type && x.name === name)
+            return (x.type === type && x.name === name);
         })
         if (res === undefined) {
             console.log(name + " with type " + type + " was not found in supplied JSON-ABI");
-            reject(undefined)
+            reject(undefined);
         }
-        resolve(res)
+        resolve(res);
     });
 }
 
