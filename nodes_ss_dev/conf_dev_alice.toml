@@ -37,8 +37,8 @@ disable_periodic = true
 [secretstore]
 disable = false
 disable_http = false
-acl_contract = "731a10897d267e19B34503aD902d0A29173Ba4B1"
-#acl_contract = "none"
+#acl_contract = "731a10897d267e19B34503aD902d0A29173Ba4B1"
+acl_contract = "none"
 server_set_contract = "none"
 #disable_acl_check = true
 self_secret = "3144de21da6de18061f818836fa3db8f3d6b6989"
@@ -58,17 +58,14 @@ logging = "transaction_pool=trace,txqueue=trace,ethcore_private_tx=trace,own_tx=
 log_file = "./db.dev_ss_alice/parity.log"
 color = true
 
-#[mining]
-#gas_floor_target = "8000000"
-
 [account] # unlock Alice's account to deploy the contract
 unlock = ["0x3144de21da6de18061f818836fa3db8f3d6b6989"]
 password = ["alice.pwd"]
 
 [private_tx]
-sstore_url = "http://127.0.0.1:8090"
 enabled = true
-account = "0x3144de21da6de18061f818836fa3db8f3d6b6989"
-signer = "0x3144de21da6de18061f818836fa3db8f3d6b6989"
-validators= ["0x3144de21da6de18061f818836fa3db8f3d6b6989"]
-passwords = "alice.pwd"
+sstore_url = "http://127.0.0.1:8090"
+account = "0x3144de21da6de18061f818836fa3db8f3d6b6989"        # Account to sign requests sent to the Secret Store.
+signer = "0x3144de21da6de18061f818836fa3db8f3d6b6989"         # Account to sign public transactions created upon verified private transaction.
+validators= ["0x3144de21da6de18061f818836fa3db8f3d6b6989"]    # validator acc
+passwords = "alice.pwd"                                       # File containing the password to unlock accounts (signer, private account, validators)

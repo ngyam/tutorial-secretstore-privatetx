@@ -4,13 +4,6 @@ const path = require("path");
 
 const httpRPC = "http://localhost:8545";
 
-const SSPermissions = require(path.join(__dirname, "../../build/contracts/SSPermissions.json"));
-const SSPermissionsSimple = require(path.join(__dirname, "../../build/contracts/SSPermissionsSimple.json"));
-const SSPermissionsComplex = require(path.join(__dirname, "../../build/contracts/SSPermissionsComplex.json"));
-
-// Parity local dev network's prefunded rich account
-const richAccount = "0x00a329c0648769A73afAc7F9381E08FB43dBEA72";
-
 // Hash of "mySecretDocument" as in the tutorial
 const defaultDocID = "0x45ce99addb0f8385bd24f30da619ddcc0cadadab73e2a4ffb7801083086b3fc2";
 

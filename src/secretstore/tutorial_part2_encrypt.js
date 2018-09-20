@@ -1,15 +1,15 @@
 const utils = require("../utils.js");
 const fs = require("fs");
 
-const httpRPC="http://localhost:8545";
-const httpSS="http://127.0.0.1:8090";
+const { httpRpcAlice, httpRpcBob, httpRpcCharlie } = utils.connectionsHTTPRPC();
+const { httpSSAlice, httpSSBob, httpSSCharlie } = utils.connectionsHTTPSS();
 
 const document = "mySecretDocument";
 
 function tutorialPart2() {
     return utils.__awaiter(this, void 0, void 0, function* () {
         const Web3 = require("web3");
-        const web3 = new Web3(httpRPC);
+        const web3 = new Web3(httpRpcAlice);
 
         const {alice, bob, charlie} = yield utils.accounts(web3);
         const {alicepwd, bobpwd, charliepwd} = yield utils.passwords(web3);
@@ -58,11 +58,10 @@ function tutorialPart2() {
         messageToSend.encryptedDocument = encryptedDocument;
 
         // 5. Store the generated document key
-        let res = yield utils.ssStoreDocKey(httpSS, docID, signedDocID, documentKey.common_point, documentKey.encrypted_point);
+        let res = yield utils.ssStoreDocKey(httpSSAlice, docID, signedDocID, documentKey.common_point, documentKey.encrypted_point);
         console.log(res);
 
         fs.writeFileSync("./sent_message.json", JSON.stringify(messageToSend));
-
     });
 }
 
