@@ -34,10 +34,11 @@ function add0x(str) {
 async function accounts(web3) {
     // we return the diff accounts based on network id
     const nId = await web3.eth.net.getId();
+//    console.log("nId"+ nId);
 
     return new Promise((resolve, reject) => {
-        // network tobalaba
-        if (nId === 401697) {
+        // network tobalaba || localPoA
+        if (nId === 401697 || nId === 8995) {
             resolve({
                 alice: "0xaf198921d2fd9c4f0a294a774f7a2aea9aae0631",
                 bob: "0xcd2216eb651c37a0ea91ba27d784452870747aff",
