@@ -68,7 +68,7 @@ function deployPermissioningContract() {
         const nId = yield web3.eth.net.getId();
         
         if (deployer === undefined) {
-            if (nId === 401697) {
+            if (nId === 401697 || nId === 8995) {
                 localAccounts = yield web3.eth.getAccounts();
                 if (localAccounts !== undefined && localAccounts.lenght !== 0) {
                     web3.eth.defaultAccount = localAccounts[0];
