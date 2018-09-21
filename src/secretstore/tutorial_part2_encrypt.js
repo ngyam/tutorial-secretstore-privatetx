@@ -31,10 +31,10 @@ function tutorialPart2() {
         let ssServerKey
         try {
             // threshold is chosen to be 1 like in the official tutorial
-            ssServerKey = yield utils.ssGenerateServerKey(httpSS, docID, signedDocID.slice(2), 1);
+            ssServerKey = yield utils.ssGenerateServerKey(httpSSAlice, docID, signedDocID.slice(2), 1);
         } catch(error) {
             if (error instanceof utils.SSRequestError && error.response.body === '"\\"Server key with this ID is already generated\\""') {
-                ssServerKey = yield utils.ssGetServerKey(httpSS, docID, signedDocID.slice(2));
+                ssServerKey = yield utils.ssGetServerKey(httpSSAlice, docID, signedDocID.slice(2));
             }   
             else {
                 // let it rip
