@@ -167,7 +167,7 @@ function sendRawTx(web3, raw) {
     });
 }
 
-function privateComposeDeploymentTx(web3, raw, validators) {
+function privateComposeDeploymentTx(web3, raw, validators, gas="0x0") {
     return new Promise((resolve, reject) => {
         web3.currentProvider.send({
             jsonrpc: '2.0',
