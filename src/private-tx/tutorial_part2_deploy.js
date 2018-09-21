@@ -33,7 +33,7 @@ function tutorialPart2() {
         // 3. Encrypt and broadcast the deployment transaction
 
         // 3.1 Encrypt the deployment transaction for the validators
-        const encryptedDeploymentTx = yield utils.privateComposeDeploymentTx(web3, signedDeplTx.raw, [bob]);
+        const encryptedDeploymentTx = yield utils.privateComposeDeploymentTx(web3, signedDeplTx.raw, [bob], web3.utils.toHex(web3.utils.toWei('0.005', "ether")));
         console.log("Private composed tx: " + JSON.stringify(encryptedDeploymentTx.transaction));
 
         // 3.1.1 We save the public contract address
