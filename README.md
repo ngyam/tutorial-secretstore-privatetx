@@ -99,7 +99,7 @@ node <tutorial_step>.js
  - Alice, Bob and Charlie communicate with their own nodes, and not only with Alice's node as in the official example.
  - The encrypted document produced in [tutorial_part2_encrypt.js](./src/secretstore/tutorial_part2_encrypt.js) is written to `sent_message.json`. This is used in step 3.
  - Optional: deploy permission contracts with the [deployer](./src/secretstore/deploy.js) tool. Check CL flags with ```node deploy -h```.
- - Optional: check whether the permission contract returns the right values with the [permissioncheck](./src/secretstore/deploy.js) tool.
+ - Optional: check whether the permission contract returns the right values with the [permissioncheck](./src/secretstore/permissioncheck.js) tool.
 
 
 #### Private transactions tutorial
