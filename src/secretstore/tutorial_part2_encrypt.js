@@ -34,18 +34,20 @@ function tutorialPart2() {
             ssServerKey = yield utils.ssGenerateServerKey(httpSSAlice, docID, signedDocID.slice(2), 1);
         } catch(error) {
             if (error instanceof utils.SSRequestError && error.response.body === '"\\"Server key with this ID is already generated\\""') {
-                ssServerKey = yield utils.ssGetServerKey(httpSSAlice, docID, signedDocID.slice(2));
+                //ssServerKey = yield utils.ssGetServerKey(httpSSAlice, docID, signedDocID.slice(2));
+                console.log("Erase SS database or use the existing one.")
+                throw error;
             }   
             else {
                 // let it rip
                 throw error;
             }
         }
-        console.log("server key public part: " + ssServerKey);
+        console.log("server key public part: " + JSON.stringify(ssServerKey));
 
         // 3. Generate document key
         const documentKey = yield utils.ssGenDocKey(web3, alice, alicepwd, ssServerKey);
-        console.log(documentKey);
+        console.log("document key" + JSON.stringify(documentKey));
 
         // 4.-1 the document in hex format
         const hexDocument = web3.utils.toHex(document);
