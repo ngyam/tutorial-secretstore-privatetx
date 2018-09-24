@@ -11,7 +11,7 @@ Made along the lines of the official Parity [secret store (SS)](https://github.c
 - [Parity client](https://github.com/paritytech/parity-ethereum), compiled with secretstore feature enabled
 - [Truffle](https://github.com/trufflesuite/truffle): Only used for compiling permissioning contracts
 - node, npm
-- web3.js, yargs
+- web3.js, yargs, crypto-js
  
 ## Setup
 
