@@ -73,10 +73,10 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506040516102ea3803806102ea833981016040528051602080830151600083905590920180519192909161004a9160019190840190610052565b5050506100de565b8280548282559060005260206000209081019282156100a7579160200282015b828111156100a75782518254600160a060020a031916600160a060020a03909116178255602090920191600190910190610072565b506100b39291506100b7565b5090565b6100db91905b808211156100b3578054600160a060020a03191681556001016100bd565b90565b6101fd806100ed6000396000f3006080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166346af6cb2811461005b578063b36a9a7c14610082578063edf26d9b146100c7575b600080fd5b34801561006757600080fd5b50610070610108565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100b373ffffffffffffffffffffffffffffffffffffffff6004351660243561010e565b604080519115158252519081900360200190f35b3480156100d357600080fd5b506100df60043561019c565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005481565b60008054819083146101235760009150610195565b5060005b600154811015610190578373ffffffffffffffffffffffffffffffffffffffff1660018281548110151561015757fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff1614156101885760019150610195565b600101610127565b600091505b5092915050565b60018054829081106101aa57fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff169050815600a165627a7a7230582028c17259fb8cd9c6510da5038b092a1b3178ca8924a922402f835bdabf39f7400029",
-  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166346af6cb2811461005b578063b36a9a7c14610082578063edf26d9b146100c7575b600080fd5b34801561006757600080fd5b50610070610108565b60408051918252519081900360200190f35b34801561008e57600080fd5b506100b373ffffffffffffffffffffffffffffffffffffffff6004351660243561010e565b604080519115158252519081900360200190f35b3480156100d357600080fd5b506100df60043561019c565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005481565b60008054819083146101235760009150610195565b5060005b600154811015610190578373ffffffffffffffffffffffffffffffffffffffff1660018281548110151561015757fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff1614156101885760019150610195565b600101610127565b600091505b5092915050565b60018054829081106101aa57fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff169050815600a165627a7a7230582028c17259fb8cd9c6510da5038b092a1b3178ca8924a922402f835bdabf39f7400029",
-  "sourceMap": "75:612:4:-;;;177:149;8:9:-1;5:2;;;30:1;27;20:12;5:2;177:149:4;;;;;;;;;;;;;;;;;;;;;263:13;:24;;;177:149;;;297:22;;177:149;;;;297:22;;:9;;:22;;;;;:::i;:::-;;177:149;;75:612;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;75:612:4;-1:-1:-1;;;;;75:612:4;;;;;;;;;;;-1:-1:-1;75:612:4;;;;;;;-1:-1:-1;75:612:4;;;-1:-1:-1;75:612:4;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;-1:-1:-1;;;;;;75:612:4;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "75:612:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;110:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;110:28:4;;;;;;;;;;;;;;;;;;;;393:292;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;393:292:4;;;;;;;;;;;;;;;;;;;;;;;;;;;144:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;144:26:4;;;;;;;;;;;;;;;;;;;;;;;;110:28;;;;:::o;393:292::-;472:4;504:13;;472:4;;492:25;;488:43;;526:5;519:12;;;;488:43;-1:-1:-1;556:1:4;542:106;563:9;:16;559:20;;542:106;;;620:4;604:20;;:9;614:1;604:12;;;;;;;;;;;;;;;;;;;;;;:20;600:37;;;633:4;626:11;;;;600:37;581:3;;542:106;;;673:5;666:12;;393:292;;;;;;:::o;144:26::-;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;144:26:4;:::o",
+  "bytecode": "0x6060604052341561000f57600080fd5b6040516102e53803806102e58339810160405280805191906020018051600084905590910190506001818051610049929160200190610051565b5050506100df565b8280548282559060005260206000209081019282156100a8579160200282015b828111156100a85782518254600160a060020a031916600160a060020a039190911617825560209290920191600190910190610071565b506100b49291506100b8565b5090565b6100dc91905b808211156100b4578054600160a060020a03191681556001016100be565b90565b6101f7806100ee6000396000f3006060604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166346af6cb2811461005b578063b36a9a7c14610080578063edf26d9b146100c3575b600080fd5b341561006657600080fd5b61006e610102565b60405190815260200160405180910390f35b341561008b57600080fd5b6100af73ffffffffffffffffffffffffffffffffffffffff60043516602435610108565b604051901515815260200160405180910390f35b34156100ce57600080fd5b6100d9600435610196565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b60005481565b600080548190831461011d576000915061018f565b5060005b60015481101561018a578373ffffffffffffffffffffffffffffffffffffffff1660018281548110151561015157fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff161415610182576001915061018f565b600101610121565b600091505b5092915050565b60018054829081106101a457fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff169050815600a165627a7a723058200df2f7e6c2c2d7104b188dacd6f79884d0c5ba34733ab9533594910c719b83a40029",
+  "deployedBytecode": "0x6060604052600436106100565763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166346af6cb2811461005b578063b36a9a7c14610080578063edf26d9b146100c3575b600080fd5b341561006657600080fd5b61006e610102565b60405190815260200160405180910390f35b341561008b57600080fd5b6100af73ffffffffffffffffffffffffffffffffffffffff60043516602435610108565b604051901515815260200160405180910390f35b34156100ce57600080fd5b6100d9600435610196565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b60005481565b600080548190831461011d576000915061018f565b5060005b60015481101561018a578373ffffffffffffffffffffffffffffffffffffffff1660018281548110151561015157fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff161415610182576001915061018f565b600101610121565b600091505b5092915050565b60018054829081106101a457fe5b60009182526020909120015473ffffffffffffffffffffffffffffffffffffffff169050815600a165627a7a723058200df2f7e6c2c2d7104b188dacd6f79884d0c5ba34733ab9533594910c719b83a40029",
+  "sourceMap": "75:612:4:-;;;177:149;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;263:13;:24;;;177:149;;;;-1:-1:-1;297:9:4;177:149;;297:22;;;;;;;;:::i;:::-;;177:149;;75:612;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;75:612:4;-1:-1:-1;;;;;75:612:4;;;;;;;;;;;;;-1:-1:-1;75:612:4;;;;;;;-1:-1:-1;75:612:4;;;-1:-1:-1;75:612:4;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;-1:-1:-1;;;;;;75:612:4;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "75:612:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;110:28;;;;;;;;;;;;;;;;;;;;;;;;;;;393:292;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;144:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;110:28;;;;:::o;393:292::-;472:4;504:13;;472:4;;492:25;;488:43;;526:5;519:12;;;;488:43;-1:-1:-1;556:1:4;542:106;563:9;:16;559:20;;542:106;;;620:4;604:20;;:9;614:1;604:12;;;;;;;;;;;;;;;;;;;;;;:20;600:37;;;633:4;626:11;;;;600:37;581:3;;542:106;;;673:5;666:12;;393:292;;;;;;:::o;144:26::-;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;144:26:4;:::o",
   "source": "pragma solidity ^0.4.21;\n\n// generic contract for permissioning a document\ncontract SSPermissionsSimple {\n    bytes32 public documentKeyId;\n    address[] public addresses;\n\n    function SSPermissionsSimple(bytes32 docKeyId, address[] _addresses) public {\n        documentKeyId = docKeyId;\n        addresses = _addresses;\n    }\n\n    /// Both Alice and Bob can access the specified document\n    function checkPermissions(address user, bytes32 document) public view returns (bool) {\n        if (document != documentKeyId) return false;\n\n        for (uint i = 0; i < addresses.length; i++) {\n            if (addresses[i] == user) return true;\n        }\n        \n        return false;\n    }\n}",
   "sourcePath": "/home/aznagy/work/privatetx/tutorial-private-tx/contracts/SSPermissionsSimple.sol",
   "ast": {
@@ -150,7 +150,7 @@
             "storageLocation": "default",
             "typeDescriptions": {
               "typeIdentifier": "t_array$_t_address_$dyn_storage",
-              "typeString": "address[]"
+              "typeString": "address[] storage ref"
             },
             "typeName": {
               "baseType": {
@@ -169,7 +169,7 @@
               "src": "144:9:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                "typeString": "address[]"
+                "typeString": "address[] storage pointer"
               }
             },
             "value": null,
@@ -324,7 +324,7 @@
                   "storageLocation": "default",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
-                    "typeString": "address[]"
+                    "typeString": "address[] memory"
                   },
                   "typeName": {
                     "baseType": {
@@ -343,7 +343,7 @@
                     "src": "224:9:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                      "typeString": "address[]"
+                      "typeString": "address[] storage pointer"
                     }
                   },
                   "value": null,
@@ -920,7 +920,7 @@
             "storageLocation": "default",
             "typeDescriptions": {
               "typeIdentifier": "t_array$_t_address_$dyn_storage",
-              "typeString": "address[]"
+              "typeString": "address[] storage ref"
             },
             "typeName": {
               "baseType": {
@@ -939,7 +939,7 @@
               "src": "144:9:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                "typeString": "address[]"
+                "typeString": "address[] storage pointer"
               }
             },
             "value": null,
@@ -1094,7 +1094,7 @@
                   "storageLocation": "default",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
-                    "typeString": "address[]"
+                    "typeString": "address[] memory"
                   },
                   "typeName": {
                     "baseType": {
@@ -1113,7 +1113,7 @@
                     "src": "224:9:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
-                      "typeString": "address[]"
+                      "typeString": "address[] storage pointer"
                     }
                   },
                   "value": null,
@@ -1621,9 +1621,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.1",
-  "updatedAt": "2018-09-19T15:01:09.139Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-09-24T21:37:48.157Z"
 }
