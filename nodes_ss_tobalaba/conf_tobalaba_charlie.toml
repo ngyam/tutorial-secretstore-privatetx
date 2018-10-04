@@ -35,8 +35,8 @@ disable_periodic = true
 [secretstore]
 disable = false
 disable_http = false
-#acl_contract = "none"
-acl_contract = "E039D0ED2Ff107465176bBbe173356F1505aB475"
+acl_contract = "none"
+#acl_contract = "ac33f781AA50052874EbbC85858a290Dc47C9aBC"
 server_set_contract = "none"
 #disable_acl_check = true
 self_secret = "7218a36efed0ab14a6295bb1c322ba1abbc4decf"
