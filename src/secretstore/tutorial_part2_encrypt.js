@@ -1,6 +1,8 @@
 const utils = require("../utils.js");
 const fs = require("fs");
 
+const secretstore = require("secretstore-private-js").secretstore;
+
 const { httpRpcAlice, httpRpcBob, httpRpcCharlie } = utils.connectionsHTTPRPC();
 const { httpSSAlice, httpSSBob, httpSSCharlie } = utils.connectionsHTTPSS();
 
@@ -24,44 +26,40 @@ function tutorialPart2() {
         messageToSend.docID = docID;
 
         // 2.1 we sign the document key id
-        const signedDocID = yield utils.ssSignRawHash(web3, alice, alicepwd, docID);
+        const signedDocID = yield secretstore.signRawHash(web3, alice, alicepwd, docID);
         console.log("signed doc ID: " + signedDocID);
 
         // 2.2 we generate the secret store server key
-        let ssServerKey
+        let serverKey
         try {
             // threshold is chosen to be 1 like in the official tutorial
-            ssServerKey = yield utils.ssGenerateServerKey(httpSSAlice, docID, signedDocID.slice(2), 1);
+            serverKey = yield secretstore.session.generateServerKey(httpSSAlice, docID, signedDocID, 1);
         } catch(error) {
-            if (error instanceof utils.SSRequestError && error.response.body === '"\\"Server key with this ID is already generated\\""') {
-                //ssServerKey = yield utils.ssGetServerKey(httpSSAlice, docID, signedDocID.slice(2));
+            if (error instanceof secretstore.session.SecretStoreSessionError 
+                && error.response.body === '"\\"Server key with this ID is already generated\\""') {
                 console.log("Erase SS database or use the existing one.")
                 throw error;
             }   
-            else {
-                // let it rip
-                throw error;
-            }
+            throw error;
         }
-        console.log("server key public part: " + JSON.stringify(ssServerKey));
+        console.log("Server key public part: " + JSON.stringify(serverKey));
 
         // 3. Generate document key
-        const documentKey = yield utils.ssGenDocKey(web3, alice, alicepwd, ssServerKey);
-        console.log("document key" + JSON.stringify(documentKey));
+        const documentKey = yield secretstore.generateDocumentKey(web3, alice, alicepwd, serverKey);
+        console.log("Document key" + JSON.stringify(documentKey));
 
         // 4.-1 the document in hex format
         const hexDocument = web3.utils.toHex(document);
-        console.log("hex document: " + hexDocument);
+        console.log("Hex document: " + hexDocument);
         
         // 4. Document encryption
-        const encryptedDocument = yield utils.ssEncrypt(web3, alice, alicepwd,documentKey.encrypted_key, hexDocument);
-        console.log("encrypted secret document: " + encryptedDocument);
+        const encryptedDocument = yield secretstore.encrypt(web3, alice, alicepwd, documentKey.encrypted_key, hexDocument);
+        console.log("Encrypted secret document: " + encryptedDocument);
 
         messageToSend.encryptedDocument = encryptedDocument;
 
         // 5. Store the generated document key
-        let res = yield utils.ssStoreDocKey(httpSSAlice, docID, signedDocID, documentKey.common_point, documentKey.encrypted_point);
-        console.log(res);
+        let res = yield secretstore.session.storeDocumentKey(httpSSAlice, docID, signedDocID, documentKey.common_point, documentKey.encrypted_point);
 
         fs.writeFileSync("./sent_message.json", JSON.stringify(messageToSend));
     });
