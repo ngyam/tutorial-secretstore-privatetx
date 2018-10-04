@@ -1,6 +1,8 @@
-const utils = require("../utils.js");
 const fs = require("fs");
 const path = require("path");
+const private = require("secretstore-private-js").private;
+
+const utils = require("../utils.js");
 
 const { httpRpcAlice, httpRpcBob, httpRpcCharlie } = utils.connectionsHTTPRPC();
 const { httpSSAlice, httpSSBob, httpSSCharlie } = utils.connectionsHTTPSS();
@@ -9,7 +11,7 @@ const TestContract = require(path.join(__dirname, "../../build/contracts/Test.js
 
 function tutorialPart3() {
     return utils.__awaiter(this, void 0, void 0, function* () {
-        console.log("Tutorial part 2 - deploying secret contract");
+        console.log("Tutorial part 3 - deploying secret contract");
         const web3 = new (require("web3"))(httpRpcAlice);
 
         const {alice, bob, charlie} = yield utils.accounts(web3);
@@ -18,11 +20,11 @@ function tutorialPart3() {
 
         // 1. Get the secret contract's bytecode -> done: TestContract.bytecode
 
-
         // 2. Compose and sign the deployment transaction
 
         // 2.1 Compose
-        const deploymentTx = yield utils.composeTx(web3, 1000000, 1000, alice, null, TestContract.bytecode);  // I spared no expense
+        const deploymentTx = yield private.composePublicTx(web3, {gas: web3.utils.toHex(1000000),
+            gasPrice: web3.utils.toHex(1000), from: alice, to:null, data: TestContract.bytecode});
         console.log("Composed deployment transaction:" + JSON.stringify(deploymentTx));
 
         // 2. Sign
@@ -33,7 +35,7 @@ function tutorialPart3() {
         // 3. Encrypt and broadcast the deployment transaction
 
         // 3.1 Encrypt the deployment transaction for the validators
-        const encryptedDeploymentTx = yield utils.privateComposeDeploymentTx(web3, signedDeplTx.raw, [bob], web3.utils.toHex(web3.utils.toWei('0.005', "ether")));
+        const encryptedDeploymentTx = yield private.composeDeploymentTx(web3, signedDeplTx.raw, [bob],  web3.utils.toHex(web3.utils.toWei('0.005', "ether")));
         console.log("Private composed tx: " + JSON.stringify(encryptedDeploymentTx.transaction));
 
         // 3.1.1 We save the public contract address
@@ -49,10 +51,10 @@ function tutorialPart3() {
         console.log("Signed transaction: " + JSON.stringify(finalTx.tx));
 
         // 3.2.2 Broadcast
-        const receipt = yield utils.sendRawTx(web3, finalTx.raw);
+        const receipt = yield web3.eth.sendSignedTransaction(finalTx.raw);
         
         // check the receipt if the deployment succeeded on blockexplorer
-        console.log("receipt: " + receipt);
+        console.log("Receipt: " + JSON.stringify(receipt));
     });
 };
 
