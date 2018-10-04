@@ -24,7 +24,7 @@ function tutorialPart3() {
 
         // 2.1 Compose
         const deploymentTx = yield private.composePublicTx(web3, {gas: web3.utils.toHex(1000000),
-            gasPrice: web3.utils.toHex(1000), from: alice, to:null, data: TestContract.bytecode});
+            gasPrice: web3.utils.toHex(1000), from: alice, to: null, data: TestContract.bytecode, nonce: null});
         console.log("Composed deployment transaction:" + JSON.stringify(deploymentTx));
 
         // 2. Sign
@@ -35,7 +35,7 @@ function tutorialPart3() {
         // 3. Encrypt and broadcast the deployment transaction
 
         // 3.1 Encrypt the deployment transaction for the validators
-        const encryptedDeploymentTx = yield private.composeDeploymentTx(web3, signedDeplTx.raw, [bob],  web3.utils.toHex(web3.utils.toWei('0.005', "ether")));
+        const encryptedDeploymentTx = yield private.composeDeploymentTx(web3, signedDeplTx.raw, [bob],  web3.utils.toHex(1000));
         console.log("Private composed tx: " + JSON.stringify(encryptedDeploymentTx.transaction));
 
         // 3.1.1 We save the public contract address
