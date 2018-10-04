@@ -58,7 +58,7 @@ function tutorialPart4() {
         console.log("Signed transaction: " + JSON.stringify(signedTx));
 
         // 2.3. Send
-        const receipt = yield private.sendTransaction(web3, signedTx.raw);
+        const receipt = yield private.send(web3, signedTx.raw);
 
         // check the receipt if the transaction succeeded on blockexplorer
         // Verify later manually that the value is set
