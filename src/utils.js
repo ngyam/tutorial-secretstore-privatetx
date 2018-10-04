@@ -1,5 +1,4 @@
 
-
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -7,14 +6,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-};
-
-class SSRequestError extends Error {
-    constructor(message, response) {
-        super(message);
-        this.response = response;
-        this.name = "SSRequestError";
-    }
 };
 
 function remove0x(str) {
@@ -34,7 +25,7 @@ function add0x(str) {
 async function accounts(web3) {
     // we return the diff accounts based on network id
     const nId = await web3.eth.net.getId();
-//    console.log("nId"+ nId);
+    // console.log("nId"+ nId);
 
     return new Promise((resolve, reject) => {
         // network tobalaba || localPoA
@@ -102,129 +93,12 @@ async function passwords(web3) {
     });
 }
 
-function composeTx(web3, gas, gasprice, from, to, data, nonce=null) {
-    return new Promise((resolve, reject) => {
-        let nc;
-        if (nonce !== undefined && nonce !== null) {
-            nc = web3.utils.toHex(nonce);
-        } else {
-            nc = null;
-        }
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'parity_composeTransaction',
-            params: [{
-                "gas": web3.utils.toHex(gas),
-                "to": to,
-                "gasPrice": web3.utils.toHex(gasprice),
-                "from": from,
-                "data": data,
-                "nonce": nc,
-            }],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                //console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
 function sendRawTx(web3, raw) {
     return new Promise((resolve, reject) => {
         web3.currentProvider.send({
             jsonrpc: '2.0',
             method: 'eth_sendRawTransaction',
             params: [raw],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                //console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function privateComposeDeploymentTx(web3, raw, validators, gas="0x0") {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'private_composeDeploymentTransaction',
-            params: ["latest", raw, validators, "0x0"],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function privateCall(web3, tx) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'private_call',
-            params: ["latest", tx],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                //console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function privateSend(web3, tx) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'private_sendTransaction',
-            params: [tx],
             id: 1
         }, (e, r) => {
             if (e) {
@@ -270,235 +144,15 @@ function getSHA256hash(message) {
     });
 }
 
-function ssSignRawHash(web3, account, pwd, hash) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'secretstore_signRawHash',
-            params: [account, pwd, "0x" + hash],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function ssGenerateServerKey(url, docID, signedDocID, threshold) {
-
-    return new Promise((resolve, reject) => {
-        const request = require('request');
-
-        var options = {
-            url: url + "/shadow/" + docID + "/" + signedDocID + "/" + threshold,
-            method: 'POST'
-        };
-
-        request(options, (error, response, body) => {
-            if (error) {
-                console.log("error:");
-                console.log(error);
-                reject(error);
-            }
-            else if (response.statusCode != 200) {
-                console.log("Request failed");
-                console.log("statusCode: " + response.statusCode);
-                console.log("statusMessage: " + response.statusMessage);
-                console.log("body: " + body);
-                console.log("Options: " + JSON.stringify(options));
-
-                sserror = new SSRequestError("Request failed.", response);
-                reject(sserror);
-            }
-            else {
-                // the successful result should be the public part of the server key enclsed in quotes
-                resolve(body.replace(/^"(.*)"$/, '$1'));
-            }
-        });
-    });
-}
-
-function ssGetServerKey(url, docID, signedDocID) {
-    return new Promise((resolve, reject) => {
-        const request = require('request');
-
-        var options = {
-            url: url + "/shadow/" + docID + "/" + remove0x(signedDocID),
-            method: 'GET'
-        };
-
-        request(options, (error, response, body) => {
-            if (error) {
-                console.log("error:");
-                console.log(error);
-                reject(error);
-            }
-            else if (response.statusCode != 200) {
-                console.log("Request failed");
-                console.log("statusCode: " + response.statusCode);
-                console.log("statusMessage: " + response.statusMessage);
-                console.log("body: " + body);
-                console.log("Options: " + JSON.stringify(options));
-
-                sserror = new SSRequestError("Request failed.", response);
-                reject(sserror);
-            }
-            else {
-                resolve(JSON.parse(body));
-            }
-        });
-    });
-}
-
-function ssGenDocKey(web3, account, pwd, serverkey) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'secretstore_generateDocumentKey',
-            params: [account, pwd, serverkey],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function ssEncrypt(web3, account, pwd, encryptedKey, hexDocument) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'secretstore_encrypt',
-            params: [account, pwd, encryptedKey, hexDocument],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                console.log(r);
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-function ssShadowDecrypt(web3, account, pwd, decryptedSecret, commonPoint, decryptShadows, encryptedDocument) {
-    return new Promise((resolve, reject) => {
-        web3.currentProvider.send({
-            jsonrpc: '2.0',
-            method: 'secretstore_shadowDecrypt',
-            params: [account, pwd, decryptedSecret, commonPoint, decryptShadows, encryptedDocument],
-            id: 1
-        }, (e, r) => {
-            if (e) {
-                console.log("error:");
-                console.log(e);
-                reject(e);
-            }
-            else if (r.error !== undefined) {
-                console.log("error");
-                console.log(r.error);
-                reject(r.error)
-            }
-            else {
-                resolve(r.result);
-            }
-        });
-    });
-}
-
-
-function ssStoreDocKey(url, docID, signedDocID, commonPoint, encryptedPoint) {
-
-    return new Promise((resolve, reject) => {
-        const request = require('request');
-
-        var options = {
-            url: url + "/shadow/" + remove0x(docID)
-                + "/" + remove0x(signedDocID)
-                + "/" + remove0x(commonPoint)
-                + "/" + remove0x(encryptedPoint),
-            method: 'POST'
-        };
-
-        request(options, (error, response, body) => {
-            if (error) {
-                console.log("error:");
-                console.log(error);
-                reject(error);
-            }
-            else if (response.statusCode != 200) {
-                console.log("Request failed");
-                console.log("statusCode: " + response.statusCode);
-                console.log("statusMessage: " + response.statusMessage);
-                console.log("body: " + body);
-                console.log("Options: " + JSON.stringify(options));
-
-                sserror = new SSRequestError("Request failed.", response);
-                reject(sserror);
-            }
-            else {
-                // the successful result should be the public part of the server key enclsed in quotes
-                resolve(body.replace(/^"(.*)"$/, '$1'));
-            }
-        });
-    });
-}
-
-
-
 module.exports = {
     __awaiter,
-    SSRequestError,
     remove0x,
     add0x,
     accounts,
     passwords,
     connectionsHTTPRPC,
     connectionsHTTPSS,
-    composeTx,
     sendRawTx,
-    privateComposeDeploymentTx,
-    privateCall,
-    privateSend,
     getJSONInterface,
-    getSHA256hash,
-    ssSignRawHash,
-    ssGenerateServerKey,
-    ssGetServerKey,
-    ssGenDocKey,
-    ssEncrypt,
-    ssShadowDecrypt,
-    ssStoreDocKey
+    getSHA256hash
 }

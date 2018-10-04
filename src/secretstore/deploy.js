@@ -1,11 +1,11 @@
 const utils = require("../utils.js");
-const fs = require("fs");
 const path = require("path");
 
 const httpRPC="http://localhost:8545";
 
 const SSPermissions = require(path.join(__dirname, "../../build/contracts/SSPermissions.json"));
 const SSPermissionsSimple = require(path.join(__dirname, "../../build/contracts/SSPermissionsSimple.json"));
+const SSPermissionsSimpleNodoc = require(path.join(__dirname, "../../build/contracts/SSPermissionsSimpleNodoc.json"));
 const SSPermissionsComplex = require(path.join(__dirname, "../../build/contracts/SSPermissionsComplex.json"));
 
 // Parity local dev network's prefunded rich account
@@ -18,8 +18,8 @@ const args = require("yargs")
                 .usage('Usage: $0 [options]')
                 .option('mode', {
                     type: 'number',
-                    desc: "which Smart Contract to deploy. 0: default = provided in the official tutorial with hard coded values, 1: simple = the doc ID and accounts can be chosen, 2: complex = registry - an arbitrary number of ID's and accounts can be added",
-                    choices: [0, 1, 2],
+                    desc: "which Smart Contract to deploy. 0: default = provided in the official tutorial with hard coded values, 1: simple = the doc ID and accounts can be chosen, 2: complex = registry - an arbitrary number of ID's and accounts can be added, 3: simple nodoc = same as 'simple' but docID's don't matter",
+                    choices: [0, 1, 2, 3],
                     demandOption: false,
                     alias: "m",
                     default: 0
@@ -96,6 +96,12 @@ function deployPermissioningContract() {
             console.log("Deploying complex:")
             Contract = new web3.eth.Contract(SSPermissionsComplex.abi, {data: SSPermissionsComplex.bytecode});
             contractPermissions = yield Contract.deploy({arguments: [args.docid, accs]}).send({
+                from: deployer,
+            });
+        } else if (args.mode === 3) {
+            console.log("Deploying simple nodoc:")
+            Contract = new web3.eth.Contract(SSPermissionsSimpleNodoc.abi, {data: SSPermissionsSimpleNodoc.bytecode});
+            contractPermissions = yield Contract.deploy({arguments: [accs]}).send({
                 from: deployer,
             });
         } else {
