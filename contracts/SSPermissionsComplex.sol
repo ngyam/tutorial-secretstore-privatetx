@@ -18,7 +18,6 @@ contract SSPermissionsComplex {
         emit NewPermission(docID);
     }
 
-    /// Both Alice and Bob can access the specified document
     function checkPermissions(address user, bytes32 document) public view returns (bool) {
         address[] storage addresses = permissions[document];
         for (uint i = 0; i < addresses.length; i++) {
