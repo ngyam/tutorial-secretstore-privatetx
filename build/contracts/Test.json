@@ -30,24 +30,24 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60bb8061001d6000396000f30060606040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630c55699c8114604d578063bc64b76d14606f575b600080fd5b3415605757600080fd5b605d6084565b60405190815260200160405180910390f35b3415607957600080fd5b6082600435608a565b005b60005481565b6000555600a165627a7a72305820d1e210d44c61253645e3d2b1b43dfd88c5d693273755b039f391f22e42b342800029",
-  "deployedBytecode": "0x60606040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630c55699c8114604d578063bc64b76d14606f575b600080fd5b3415605757600080fd5b605d6084565b60405190815260200160405180910390f35b3415607957600080fd5b6082600435608a565b005b60005481565b6000555600a165627a7a72305820d1e210d44c61253645e3d2b1b43dfd88c5d693273755b039f391f22e42b342800029",
-  "sourceMap": "26:108:5:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:108:5:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;51:16;;;;;;;;;;;;;;;;;;;;;;;;;;;74:58;;;;;;;;;;;;;;;;51:16;;;;:::o;74:58::-;118:1;:6;74:58::o",
+  "bytecode": "0x608060405234801561001057600080fd5b5060bf8061001f6000396000f30060806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630c55699c8114604d578063bc64b76d146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b6000555600a165627a7a72305820270c463fb911eabcdd6912d4576206ce13c61cfd6698c4a06e9a4a43a39850490029",
+  "deployedBytecode": "0x60806040526004361060485763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630c55699c8114604d578063bc64b76d146071575b600080fd5b348015605857600080fd5b50605f6088565b60408051918252519081900360200190f35b348015607c57600080fd5b506086600435608e565b005b60005481565b6000555600a165627a7a72305820270c463fb911eabcdd6912d4576206ce13c61cfd6698c4a06e9a4a43a39850490029",
+  "sourceMap": "26:108:7:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;26:108:7;;;;;;;",
+  "deployedSourceMap": "26:108:7:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;51:16;;8:9:-1;5:2;;;30:1;27;20:12;5:2;51:16:7;;;;;;;;;;;;;;;;;;;;74:58;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;74:58:7;;;;;;;51:16;;;;:::o;74:58::-;118:1;:6;74:58::o",
   "source": "pragma solidity ^0.4.11;\n\ncontract Test {\n    \n    bytes32 public x;\n\n    function setX(bytes32 _x) public { \n        x = _x; \n    }\n}",
   "sourcePath": "/home/aznagy/work/privatetx/tutorial-private-tx/contracts/Test.sol",
   "ast": {
     "absolutePath": "/home/aznagy/work/privatetx/tutorial-private-tx/contracts/Test.sol",
     "exportedSymbols": {
       "Test": [
-        391
+        549
       ]
     },
-    "id": 392,
+    "id": 550,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 378,
+        "id": 536,
         "literals": [
           "solidity",
           "^",
@@ -55,7 +55,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:5"
+        "src": "0:24:7"
       },
       {
         "baseContracts": [],
@@ -63,20 +63,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 391,
+        "id": 549,
         "linearizedBaseContracts": [
-          391
+          549
         ],
         "name": "Test",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 380,
+            "id": 538,
             "name": "x",
             "nodeType": "VariableDeclaration",
-            "scope": 391,
-            "src": "51:16:5",
+            "scope": 549,
+            "src": "51:16:7",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -84,10 +84,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 379,
+              "id": 537,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "51:7:5",
+              "src": "51:7:7",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -98,26 +98,26 @@
           },
           {
             "body": {
-              "id": 389,
+              "id": 547,
               "nodeType": "Block",
-              "src": "107:25:5",
+              "src": "107:25:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 387,
+                    "id": 545,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 385,
+                      "id": 543,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 380,
-                      "src": "118:1:5",
+                      "referencedDeclaration": 538,
+                      "src": "118:1:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -127,31 +127,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 386,
+                      "id": 544,
                       "name": "_x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 382,
-                      "src": "122:2:5",
+                      "referencedDeclaration": 540,
+                      "src": "122:2:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "118:6:5",
+                    "src": "118:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 388,
+                  "id": 546,
                   "nodeType": "ExpressionStatement",
-                  "src": "118:6:5"
+                  "src": "118:6:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 390,
+            "id": 548,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -159,16 +159,16 @@
             "name": "setX",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 383,
+              "id": 541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 382,
+                  "id": 540,
                   "name": "_x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "88:10:5",
+                  "scope": 548,
+                  "src": "88:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -176,10 +176,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 381,
+                    "id": 539,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "88:7:5",
+                    "src": "88:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -189,40 +189,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "87:12:5"
+              "src": "87:12:7"
             },
             "payable": false,
             "returnParameters": {
-              "id": 384,
+              "id": 542,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "107:0:5"
+              "src": "107:0:7"
             },
-            "scope": 391,
-            "src": "74:58:5",
+            "scope": 549,
+            "src": "74:58:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 392,
-        "src": "26:108:5"
+        "scope": 550,
+        "src": "26:108:7"
       }
     ],
-    "src": "0:134:5"
+    "src": "0:134:7"
   },
   "legacyAST": {
     "absolutePath": "/home/aznagy/work/privatetx/tutorial-private-tx/contracts/Test.sol",
     "exportedSymbols": {
       "Test": [
-        391
+        549
       ]
     },
-    "id": 392,
+    "id": 550,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 378,
+        "id": 536,
         "literals": [
           "solidity",
           "^",
@@ -230,7 +230,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:5"
+        "src": "0:24:7"
       },
       {
         "baseContracts": [],
@@ -238,20 +238,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 391,
+        "id": 549,
         "linearizedBaseContracts": [
-          391
+          549
         ],
         "name": "Test",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 380,
+            "id": 538,
             "name": "x",
             "nodeType": "VariableDeclaration",
-            "scope": 391,
-            "src": "51:16:5",
+            "scope": 549,
+            "src": "51:16:7",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -259,10 +259,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 379,
+              "id": 537,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "51:7:5",
+              "src": "51:7:7",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -273,26 +273,26 @@
           },
           {
             "body": {
-              "id": 389,
+              "id": 547,
               "nodeType": "Block",
-              "src": "107:25:5",
+              "src": "107:25:7",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 387,
+                    "id": 545,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 385,
+                      "id": 543,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 380,
-                      "src": "118:1:5",
+                      "referencedDeclaration": 538,
+                      "src": "118:1:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
@@ -302,31 +302,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 386,
+                      "id": 544,
                       "name": "_x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 382,
-                      "src": "122:2:5",
+                      "referencedDeclaration": 540,
+                      "src": "122:2:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bytes32",
                         "typeString": "bytes32"
                       }
                     },
-                    "src": "118:6:5",
+                    "src": "118:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "id": 388,
+                  "id": 546,
                   "nodeType": "ExpressionStatement",
-                  "src": "118:6:5"
+                  "src": "118:6:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 390,
+            "id": 548,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -334,16 +334,16 @@
             "name": "setX",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 383,
+              "id": 541,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 382,
+                  "id": 540,
                   "name": "_x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 390,
-                  "src": "88:10:5",
+                  "scope": 548,
+                  "src": "88:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -351,10 +351,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 381,
+                    "id": 539,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "88:7:5",
+                    "src": "88:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -364,33 +364,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "87:12:5"
+              "src": "87:12:7"
             },
             "payable": false,
             "returnParameters": {
-              "id": 384,
+              "id": 542,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "107:0:5"
+              "src": "107:0:7"
             },
-            "scope": 391,
-            "src": "74:58:5",
+            "scope": 549,
+            "src": "74:58:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 392,
-        "src": "26:108:5"
+        "scope": 550,
+        "src": "26:108:7"
       }
     ],
-    "src": "0:134:5"
+    "src": "0:134:7"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "2.0.0",
-  "updatedAt": "2018-09-24T21:37:48.157Z"
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-10-23T08:55:34.687Z"
 }
