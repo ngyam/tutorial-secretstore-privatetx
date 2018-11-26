@@ -26,7 +26,7 @@ function authorize() {
 
         // 2.1 Compose the transaction
 
-        const authorizeData = yield privateContract.methods.consume(11,"20180101",0).encodeABI();
+        const authorizeData = yield privateContract.methods.consume(42,"20180101",0).encodeABI();
 
         const composedTx = yield private.composePublicTx(web3, {
             gas: web3.utils.toHex(1000000),

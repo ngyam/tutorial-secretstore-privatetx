@@ -23,8 +23,7 @@ function tutorialPart3() {
         // 2. Compose and sign the deployment transaction
 
         // 2.1 Compose
-        const deploymentTx = yield private.composePublicTx(web3, {gas: web3.utils.toHex(1000000),
-            gasPrice: web3.utils.toHex(1000), from: alice, to: null, data: TestContract.bytecode, nonce: null});
+        const deploymentTx = yield private.composePublicTx(web3, {gasPrice: web3.utils.toHex(1000), from: alice, to: null, data: TestContract.bytecode, nonce: null});
         console.log("Composed deployment transaction:" + JSON.stringify(deploymentTx));
 
         // 2. Sign
