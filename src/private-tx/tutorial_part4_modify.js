@@ -47,7 +47,7 @@ function tutorialPart4() {
         //const encodedData = yield web3.eth.abi.encodeFunctionCall(jsoninterface, [web3.utils.toHex("42")])
 
         const composedTx = yield private.composePublicTx(web3, {
-            gas: web3.utils.toHex(1000000),
+            gas: web3.utils.toHex(8000000),
             gasPrice: web3.utils.toHex(100),
             from: alice, to: contractAddress, data: setXData
         });
