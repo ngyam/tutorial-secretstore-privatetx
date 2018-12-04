@@ -1,17 +1,16 @@
 # Secret store & private transactions tutorial code
 
-Made along the lines of the official Parity [secret store (SS)](https://github.com/paritytech/wiki/blob/master/Secret-Store.md) and private [transactions](https://github.com/paritytech/wiki/blob/master/Private-Transactions.md) tutorial. What this repo can help you with:
- - Ease of setting up secret store nodes on various networks
+Made along the lines of the official Parity [Secret Store (SS)](https://github.com/paritytech/wiki/blob/master/Secret-Store.md) and Private [Transactions](https://github.com/paritytech/wiki/blob/master/Private-Transactions.md) tutorial. What this repo can help you with:
+ - Ease of setting up test secret store nodes on various networks
  - Run the official Parity tutorial steps automated, with minimal manual fiddling
- - Simple CL tool for deploying permissioning contracts
- - JS abstraction of the ss/private [Parity API](https://wiki.parity.io/JSONRPC)
+ - Simple CL tool for deploying permissioning contracts. This simple tool have been further developed, which can be found [here](https://github.com/energywebfoundation/secretstore-contracts). 
   
 ## Dependencies
 
 - [Parity client](https://github.com/paritytech/parity-ethereum), compiled with secretstore feature enabled
 - [Truffle](https://github.com/trufflesuite/truffle): Only used for compiling permissioning contracts
 - node, npm
-- web3.js, yargs, crypto-js
+- npm packages: web3.js, yargs, crypto-js, [secretstore](https://github.com/energywebfoundation/secretstore-js), secretstore-private-js
  
 ## Setup
 
@@ -35,7 +34,7 @@ npm install
 
 ### Parity client
 
-Following the [official tutorial](), you need to compile from source. Please use the latest master branch, as features/fixes are continuously being added:
+Following the [official tutorial](https://wiki.parity.io/Secret-Store-Tutorial-overview), you need to compile from source. Please use the latest master branch, as features/fixes are continuously being added:
 
 ```bash
 git clone https://github.com/paritytech/parity
@@ -57,8 +56,8 @@ Then copy the `parity` binary from `<parity repo>/target/release` to the tutoria
 ## How to use
 
 ### TL;DR
- 1.  Start up secret store nodes with `./start.sh`.
- 2.  Run the desired tutorial js files: `node <filename>.js`
+ 1.  Start up secret store cluster with `./start.sh` in their respective folder.
+ 2.  Run the desired tutorial js files in the `src` directory: `node <filename>.js`
  3.  Optional: compile contracts with ```truffle compile```
  4.  Optional: deploy permissioning contracts with `src/secretstore/deploy.js` node script.
 
@@ -68,7 +67,7 @@ You can easily do this by running `./starth.sh` in the nodes_ss_[networkname] fo
 
 In the `nodes_ss_[networkname]` folder you can:
 
- - Edit configuration files of 3 different SS nodes (Alice, Bob, Charlie): `conf_[network]_[alice, bob, charlie].toml`. They use separate db folders, and write logs in `<db folder name>/parity.log`. Accounts with password files are created.
+ - Edit configuration files of 3 different SS nodes (Alice, Bob, Charlie) which are fully connected: `conf_[network]_[alice, bob, charlie].toml`. They use separate db folders, and write logs in `<db folder name>/parity.log`. Accounts with password files are there too which are free to use by anyone.
 
  - Start nodes
    ```bash
@@ -94,6 +93,7 @@ In the `nodes_ss_[networkname]` folder you can:
 ```bash
 node <tutorial_step>.js
 ```
+They are the official Parity tutorial steps scripted in separate files.
 
 #### Secret store (SS) tutorial
  - Alice, Bob and Charlie communicate with their own nodes, and not only with Alice's node as in the official example.
