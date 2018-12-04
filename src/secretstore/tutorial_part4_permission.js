@@ -1,5 +1,5 @@
 const fs = require("fs");
-const secretstore = require("secretstore-private-js").secretstore;
+const secretstore = require("secretstore");
 
 const utils = require("../utils.js");
 
@@ -10,6 +10,7 @@ function tutorialPart4() {
     return utils.__awaiter(this, void 0, void 0, function* () {
         const Web3 = require("web3");
         const web3 = new Web3(httpRpcCharlie);
+        const ss = new secretstore.SecretStore(web3, httpSSCharlie);
 
         console.log("Checking if Charlie has access..")
 
@@ -22,11 +23,11 @@ function tutorialPart4() {
         console.log("Message received: " + JSON.stringify(messageReceived));
 
         // 1. signing the document ID by Bob
-        const signedDoc = yield secretstore.signRawHash(web3, charlie, charliepwd, messageReceived.docID);
+        const signedDoc = yield ss.signRawHash(charlie, charliepwd, messageReceived.docID);
         console.log("Doc ID signed: " + signedDoc);
 
         // 2. Let's retrieve the keys
-        const decryptionKeys = yield secretstore.session.shadowRetrieveDocumentKey(httpSSCharlie, messageReceived.docID, signedDoc);
+        const decryptionKeys = yield ss.session.shadowRetrieveDocumentKey(messageReceived.docID, signedDoc);
         console.log("DecryptionKeys keys retrieved: " + JSON.stringify(decryptionKeys));
         console.log("Charlie sees everything.");
 
