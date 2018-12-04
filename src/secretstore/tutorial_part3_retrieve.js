@@ -1,5 +1,5 @@
 const fs = require("fs");
-const secretstore = require("secretstore-private-js").secretstore;
+const secretstore = require("secretstore");
 
 const utils = require("../utils.js");
 
@@ -10,6 +10,7 @@ function tutorialPart3() {
     return utils.__awaiter(this, void 0, void 0, function* () {
         const Web3 = require("web3");
         const web3 = new Web3(httpRpcBob);
+        const ss = new secretstore.SecretStore(web3, httpSSBob);
 
         const { alice, bob, charlie } = yield utils.accounts(web3);
         const { alicepwd, bobpwd, charliepwd } = yield utils.passwords(web3);
@@ -20,16 +21,16 @@ function tutorialPart3() {
         console.log("Message received: " + JSON.stringify(messageReceived));
 
         // 1. signing the document ID by Bob
-        const signedDoc = yield secretstore.signRawHash(web3, bob, bobpwd, messageReceived.docID);
+        const signedDoc = yield ss.signRawHash(bob, bobpwd, messageReceived.docID);
         console.log("Doc ID signed: " + signedDoc);
 
         // 2. Let's retrieve the keys
-        const decryptionKeys = yield secretstore.session.shadowRetrieveDocumentKey(httpSSBob, messageReceived.docID, signedDoc);
+        const decryptionKeys = yield ss.session.shadowRetrieveDocumentKey(messageReceived.docID, signedDoc);
         console.log("Decryption keys retrieved: " + JSON.stringify(decryptionKeys));
 
         // 3. Decrypt document
         //decryptedSecret, commonPoint, decryptShadows, encryptedDocument
-        const hexDocument = yield secretstore.shadowDecrypt(web3, bob, bobpwd,
+        const hexDocument = yield ss.shadowDecrypt(bob, bobpwd,
             decryptionKeys.decrypted_secret,
             decryptionKeys.common_point,
             decryptionKeys.decrypt_shadows,
