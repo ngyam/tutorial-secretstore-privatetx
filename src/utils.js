@@ -61,6 +61,31 @@ function connectionsHTTPSS() {
     };
 }
 
+
+function connectionsNetworkHTTPRPC() {
+    return {
+            node1: "http://3.122.126.73:8545",
+            node2: "http://52.74.41.192:8545",
+            node3: "http://3.88.123.39:8545",
+            node4: "http://18.228.230.122:8545",
+            node5: "http://54.153.207.163:8545",
+            node6: "http://52.31.129.130:8545",
+            node7: "http://52.26.99.32:8545"
+    };
+}
+
+function connectionsNetworkHTTPSS() {
+    return {
+        node1: "http://3.122.126.73:8082",
+        node2: "http://52.74.41.192:8082",
+        node3: "http://3.88.123.39:8082",
+        node4: "http://18.228.230.122:8082",
+        node5: "http://54.153.207.163:8082",
+        node6: "http://52.31.129.130:8082",
+        node7: "http://52.26.99.32:8082"
+    };
+}
+
 async function passwords(web3) {
     // we return the diff pwds based on network id
     const nId = await web3.eth.net.getId();
@@ -152,6 +177,8 @@ module.exports = {
     passwords,
     connectionsHTTPRPC,
     connectionsHTTPSS,
+    connectionsNetworkHTTPRPC,
+    connectionsNetworkHTTPSS,
     sendRawTx,
     getJSONInterface,
     getSHA256hash

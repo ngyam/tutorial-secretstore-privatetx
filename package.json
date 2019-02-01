@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "secretstore": "0.0.2",
+    "secretstore": "0.0.3",
     "secretstore-private-js": "0.0.2",
     "web3": "^1.0.0-beta.36",
     "yargs": "^12.0.2"
