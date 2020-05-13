@@ -67,4 +67,9 @@ typings/
 */*/secretstore/
 */*/signer/
 
+src/*/sent_message.json
+src/*/compose_receipt.json
+
 parity
+
+build/

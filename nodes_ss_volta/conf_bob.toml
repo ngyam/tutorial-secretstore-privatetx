@@ -1,0 +1,70 @@
+[parity]
+base_path = "db.dev_ss_bob"
+chain = "../chainspec/volta.json"
+
+[ui]
+disable = false
+
+[rpc]
+disable = false
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts", "private", "secretstore"]
+port = 8547
+cors = ["*"]
+
+[ipc]
+disable = true
+
+[websockets]
+disable = true
+
+[dapps]
+disable = false
+
+[ipfs]
+enable = false
+
+[network]
+port = 30304
+node_key = "cd2216eb651c37a0ea91ba27d784452870747aff"
+reserved_peers = "./reserved_peers_bob.txt"
+
+[snapshots]
+disable_periodic = true
+
+[secretstore]
+disable = false
+disable_http = false
+service_contract_doc_sretr = "413fed84bC45372E1e0585d62E1919520e762F2b"
+service_contract_doc_store = "0AE0D6be0bd21Ab7522fC4B35a5f47FB8eac9337"
+service_contract_srv_retr = "2D855bD90FEa026c9bFaF59e915395eE9AfAd830"
+service_contract_srv_gen = "32AE9426496caeE99746fcaA9a5141d4A7b9C77b"
+acl_contract = "9bb56e8602a8846c35f049a1bd23537B0D8825F7"
+server_set_contract = "none"
+self_secret = "cd2216eb651c37a0ea91ba27d784452870747aff"
+interface = "all"
+port = 8085
+http_interface = "all"
+http_port = 8091    
+path = "db.dev_ss_bob/secretstore"
+nodes = [
+    "df73521d73ba2014bfb1a40c7a582365da53ac093a82a72d7b9e26cdc5a339ef34137087030fd5dfab38d5e9515964def893548e8209f7861a6ff4f76f0e66f7@127.0.0.1:8083",
+    "5ae2252871be8fb040c47308b895c68279ffe498b93dd601e6f7f1b4333f8218b60a600d25fe953b95c6962e71c3174d2c92d2774e4fcacc7d86739780280ebd@127.0.0.1:8085",
+    "634c23892a957ef02a1952a65f2f1c89f5fffa28592068f4f31ec276981477ec86841d16a7fdf0c0836cf98ff24a1ba8dc546c95aeddde920a73f29cf2535d92@127.0.0.1:8087"
+]
+
+[misc]
+logging = "transaction_pool=trace,txqueue=trace,ethcore_private_tx=trace,own_tx=trace"
+log_file = "./db.dev_ss_bob/parity.log"
+color = true
+
+[account] # unlock Bob's account to deploy the contract
+#unlock = ["0xcd2216eb651c37a0ea91ba27d784452870747aff"]
+password = ["bob.pwd"]
+
+[private_tx]
+sstore_url = "http://127.0.0.1:8091"
+enabled = true
+account = "0xcd2216eb651c37a0ea91ba27d784452870747aff"
+signer = "0xcd2216eb651c37a0ea91ba27d784452870747aff"
+validators= ["0xcd2216eb651c37a0ea91ba27d784452870747aff"]
+passwords = "bob.pwd"

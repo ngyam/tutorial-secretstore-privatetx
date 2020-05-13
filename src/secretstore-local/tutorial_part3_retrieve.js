@@ -3,15 +3,14 @@ const fs = require("fs");
 const secretstore = require("secretstore");
 
 const utils = require("../utils.js");
-const { ACCOUNT_LOCAL, HTTP_RPC_LOCAL, HTTP_SS_NETWORK } = require("../../settings.js");
-
+const { ACCOUNT_LOCAL, HTTP_RPC_LOCAL, HTTP_SS_LOCAL } = require("../../settings.js");
 
 async function tutorialPart3() {
-    console.warn("! Warning: Make sure you run Bob's local node");
+    console.warn("! Warning: Make sure you run Bob's local node")
     console.log();
     const Web3 = require("web3");
     const web3 = new Web3(HTTP_RPC_LOCAL.BOB);
-    const ss = new secretstore.SecretStore(web3, HTTP_SS_NETWORK[await web3.eth.getChainId()][1]);
+    const ss = new secretstore.SecretStore(web3, HTTP_SS_LOCAL.BOB);
 
     const {ALICE: ALICE, BOB: BOB, CHARLIE: CHARLIE} = ACCOUNT_LOCAL;
     console.log(BOB[0], BOB[1]);

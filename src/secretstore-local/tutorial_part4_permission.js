@@ -3,22 +3,21 @@ const fs = require("fs");
 const secretstore = require("secretstore");
 
 const utils = require("../utils.js");
-const { ACCOUNT_LOCAL, HTTP_RPC_LOCAL, HTTP_SS_NETWORK } = require("../../settings.js");
-
+const { ACCOUNT_LOCAL, HTTP_RPC_LOCAL, HTTP_SS_LOCAL } = require("../../settings.js");
 
 async function tutorialPart4() {
-    console.warn("! Warning: Make sure you run Charlie's local node");
+    console.warn("! Warning: Make sure you run Charlie's local node")
     console.log();
     const Web3 = require("web3");
     const web3 = new Web3(HTTP_RPC_LOCAL.CHARLIE);
-    const ss = new secretstore.SecretStore(web3, HTTP_SS_NETWORK[await web3.eth.getChainId()][1]);
+    const ss = new secretstore.SecretStore(web3, HTTP_SS_LOCAL.CHARLIE);
 
     const {ALICE: ALICE, BOB: BOB, CHARLIE: CHARLIE} = ACCOUNT_LOCAL;
     console.log(CHARLIE[0], CHARLIE[1]);
 
     console.log("Checking if Charlie has access..")
 
-    // Bob receives the message: document ID and encrypted document
+    // Charlie intercepts the message: document ID and encrypted document
     const messageReceived = JSON.parse(fs.readFileSync("./sent_message.json"));
     console.log("Message received: " + JSON.stringify(messageReceived));
 

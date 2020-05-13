@@ -7,15 +7,20 @@
     "test": "test"
   },
   "dependencies": {
-    "crypto-js": "^3.1.9-1",
-    "secretstore": "0.0.3",
+    "@truffle/hdwallet-provider": "^1.0.35",
+    "crypto-js": "^3.3.0",
+    "dotenv": "^8.2.0",
+    "secretstore": "^0.1.0",
+    "secretstore-contracts": "git+https://github.com/energywebfoundation/secretstore-contracts.git",
     "secretstore-private-js": "0.0.2",
-    "web3": "^1.0.0-beta.36",
-    "yargs": "^12.0.2"
+    "truffle": "^5.1.25",
+    "web3": "^1.2.7",
+    "yargs": "^12.0.5"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./scripts/contractbuild.sh"
   },
   "repository": {
     "type": "git",
