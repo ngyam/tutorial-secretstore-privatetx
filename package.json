@@ -10,6 +10,7 @@
     "@truffle/hdwallet-provider": "^1.0.35",
     "crypto-js": "^3.3.0",
     "dotenv": "^8.2.0",
+    "ecies-parity": "^0.1.1",
     "secretstore": "^0.1.0",
     "secretstore-contracts": "git+https://github.com/energywebfoundation/secretstore-contracts.git",
     "secretstore-private-js": "0.0.2",

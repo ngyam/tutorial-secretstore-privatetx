@@ -6,9 +6,9 @@ const REGISTRY = {
 }
 
 const ACCOUNT_LOCAL = {
-    ALICE: ["0x3144de21da6de18061f818836fa3db8f3d6b6989", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "alice.pwd"), "utf-8")],
-    BOB: ["0x6c4b8b199a41b721e0a95df9860cf0a18732e76d", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "bob.pwd"), "utf-8")],
-    CHARLIE: ["0x8b2c16e09bfb011c5e4883cedb105124ccf01af7", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "charlie.pwd"), "utf-8")]
+    ALICE: ["0x3144de21da6de18061f818836fa3db8f3d6b6989", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "alice.pwd"), "utf-8"), "0x7dd8a169a19cfe658cd905fd2fd0c92bb07706bcf01c2e326902b33db51729cb"],
+    BOB: ["0x6c4b8b199a41b721e0a95df9860cf0a18732e76d", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "bob.pwd"), "utf-8"), "0x6f14825e2688542e71418ddbc012928dc921c3ec42623c5acebe419b6cda513a"],
+    CHARLIE: ["0x8b2c16e09bfb011c5e4883cedb105124ccf01af7", fs.readFileSync(path.join(__dirname, "nodes_ss_localpoa", "charlie.pwd"), "utf-8"), "0x40f68649b60012c838bf621906dca0a90a4ec25d6b571243da4a9b074922ec2e"]
 }
 
 const HTTP_RPC_LOCAL = {
@@ -22,7 +22,6 @@ const HTTP_SS_LOCAL = {
     BOB: "http://127.0.0.1:8091",
     CHARLIE: "http://127.0.0.1:8092"
 }
-
 
 const HTTP_RPC_NETWORK = {
     73799: {
