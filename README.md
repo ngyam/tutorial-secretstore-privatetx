@@ -7,7 +7,6 @@ Made along the lines of the official Parity [Secret Store (SS)](https://openethe
 - [OpenEthereum (Parity) client](https://github.com/openethereum/openethereum), compiled with secretstore feature enabled
 - [Truffle](https://github.com/trufflesuite/truffle): Only used for compiling permissioning contracts
 - node, npm
-- npm packages: web3.js, yargs, crypto-js, [secretstore](https://github.com/energywebfoundation/secretstore-js), secretstore-private-js
  
 ## Setup
 
